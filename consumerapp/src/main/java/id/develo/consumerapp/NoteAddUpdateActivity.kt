@@ -1,4 +1,4 @@
-package id.develo.mynotesapp
+package id.develo.consumerapp
 
 import android.content.ContentValues
 import android.content.Intent
@@ -10,13 +10,12 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import id.develo.mynotesapp.databinding.ActivityNoteAddUpdateBinding
-import id.develo.mynotesapp.db.DatabaseContract
-import id.develo.mynotesapp.db.DatabaseContract.NoteColumns.Companion.CONTENT_URI
-import id.develo.mynotesapp.db.DatabaseContract.NoteColumns.Companion.DATE
-import id.develo.mynotesapp.db.NoteHelper
-import id.develo.mynotesapp.entity.Note
-import id.develo.mynotesapp.helper.MappingHelper
+import id.develo.consumerapp.databinding.ActivityNoteAddUpdateBinding
+import id.develo.consumerapp.db.DatabaseContract
+import id.develo.consumerapp.db.DatabaseContract.NoteColumns.Companion.CONTENT_URI
+import id.develo.consumerapp.db.DatabaseContract.NoteColumns.Companion.DATE
+import id.develo.consumerapp.entity.Note
+import id.develo.consumerapp.helper.MappingHelper
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -25,7 +24,6 @@ class NoteAddUpdateActivity : AppCompatActivity(), View.OnClickListener {
     private var isEdit = false
     private var note: Note? = null
     private var position: Int = 0
-    private lateinit var noteHelper: NoteHelper
     private lateinit var uriWithId: Uri
 
     private lateinit var binding: ActivityNoteAddUpdateBinding
@@ -46,9 +44,6 @@ class NoteAddUpdateActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivityNoteAddUpdateBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        noteHelper = NoteHelper.getInstance(applicationContext)
-        noteHelper.open()
 
         note = intent.getParcelableExtra(EXTRA_NOTE)
         if (note != null) {

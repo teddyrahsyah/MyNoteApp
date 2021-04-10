@@ -1,19 +1,19 @@
-package id.develo.mynotesapp
+package id.develo.consumerapp
 
 import android.content.Intent
 import android.database.ContentObserver
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.HandlerThread
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
-import id.develo.mynotesapp.adapter.NoteAdapter
-import id.develo.mynotesapp.databinding.ActivityMainBinding
-import id.develo.mynotesapp.db.DatabaseContract.NoteColumns.Companion.CONTENT_URI
-import id.develo.mynotesapp.entity.Note
-import id.develo.mynotesapp.helper.MappingHelper
+import id.develo.consumerapp.adapter.NoteAdapter
+import id.develo.consumerapp.databinding.ActivityMainBinding
+import id.develo.consumerapp.db.DatabaseContract.NoteColumns.Companion.CONTENT_URI
+import id.develo.consumerapp.entity.Note
+import id.develo.consumerapp.helper.MappingHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.title = "Notes"
+        supportActionBar?.title = "Consumer Notes"
 
         binding.rvNotes.layoutManager = LinearLayoutManager(this)
         binding.rvNotes.setHasFixedSize(true)

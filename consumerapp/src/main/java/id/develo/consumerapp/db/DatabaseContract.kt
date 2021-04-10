@@ -1,4 +1,4 @@
-package id.develo.mynotesapp.db
+package id.develo.consumerapp.db
 
 import android.net.Uri
 import android.provider.BaseColumns
